@@ -1,0 +1,108 @@
+/* styles.css */
+
+/* Tailwind Directives - Required if using PostCSS or Tailwind CLI build */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------
+   Custom Base Styles
+------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for fixed nav anchor scrolls */
+}
+
+/* Optional custom body tweaks */
+body {
+  /* Use Tailwind classes in HTML directly. */
+}
+
+/* -------------------------
+   Navigation
+------------------------- */
+
+.nav-link.active {
+  @apply text-blue-600 font-semibold;
+}
+
+/* -------------------------
+   Carousel Indicators
+------------------------- */
+
+#carousel-indicators button {
+  @apply w-3 h-3 bg-gray-400 rounded-full cursor-pointer transition-all duration-300;
+}
+
+#carousel-indicators button.active {
+  @apply w-8 bg-blue-600;
+}
+
+/* -------------------------
+   Tab Buttons (if using tabbed interface)
+------------------------- */
+
+.tab-btn.active {
+  @apply text-blue-400 border-b-2 border-blue-400;
+}
+
+.tab-btn:not(.active) {
+  @apply text-gray-300 border-b-2 border-transparent hover:text-blue-400;
+}
+
+/* -------------------------
+   ScrollReveal Animation Preparation
+------------------------- */
+
+.reveal-bottom {
+  @apply opacity-0 translate-y-5; /* ~translateY(20px) */
+}
+
+/* -------------------------
+   Mobile Navigation Menu
+------------------------- */
+
+#mobile-nav-menu {
+  @apply translate-x-full transition-transform duration-300 ease-in-out;
+}
+
+#mobile-nav-menu.active {
+  @apply translate-x-0;
+}
+
+#mobile-menu-overlay {
+  @apply opacity-0 transition-opacity duration-300 ease-in-out;
+}
+
+#mobile-menu-overlay.active {
+  @apply opacity-100;
+}
+
+/* -------------------------
+   Itinerary Sidebar (Slide-in)
+------------------------- */
+
+#itinerary-sidebar {
+  @apply fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out;
+}
+
+#itinerary-sidebar.open {
+  @apply translate-x-0;
+}
+
+/* -------------------------
+   Section Images (Culture, Dining, etc.)
+------------------------- */
+
+.section-image-content {
+  @apply w-full h-96 object-cover object-center rounded-lg shadow-xl;
+}
+
+/* -------------------------
+   Focus Styles (Accessibility)
+------------------------- */
+
+button:focus {
+  @apply outline-none ring-2 ring-blue-400;
+}

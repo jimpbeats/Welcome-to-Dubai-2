@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Dubai, a vibrant city of luxury, innovation, and culture. Explore top attractions, heritage, and dining experiences.">
+    <meta name="keywords" content="Dubai, tourism, attractions, culture, dining, travel">
+    <meta name="author" content="Visit Dubai">
+    <meta property="og:title" content="Welcome to Dubai">
+    <meta property="og:description" content="Experience the vibrant city of luxury and innovation in Dubai.">
+    <meta property="og:image" content="images/Hero_slider.jpg">
+    <meta property="og:url" content="https://www.visitdubai.com">
+
+
+    <title>Welcome to Dubai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-gray-50 font-poppins text-gray-800">
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50 transition-all duration-300" aria-label="Main navigation">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center">
+                <img src="images/Dubai_Logo.png" alt="Dubai Logo" class="h-10 md:h-12">
+            </a>
+            <button class="md:hidden text-gray-600 focus:outline-none" id="nav-toggle" aria-label="Toggle navigation">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <ul class="hidden md:flex space-x-6 lg:space-x-8 items-center" id="nav-menu">
+                <li><a href="#home" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition duration-200">Home</a></li>
+                <li><a href="#dubai" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition duration-200">Dubai</a></li>
+                <li><a href="#explore" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition duration-200">Attractions</a></li>
+                <li><a href="#culture" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition duration-200">Culture</a></li>
+                <li><a href="#dining" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition duration-200">Dining</a></li>
+                <li><a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition duration-200">Contact</a></li>
+                <li><a href="https://www.visitdubai.com" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">Visit Dubai</a></li>
+            </ul>
+            <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-75 z-40 hidden md:hidden"></div>
+            <ul id="mobile-nav-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+                <li class="p-4 border-b flex justify-end">
+                    <button class="text-gray-600 focus:outline-none" id="close-nav-toggle" aria-label="Close navigation">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </li>
+                <li><a href="#home" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-close-menu>Home</a></li>
+                <li><a href="#dubai" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-close-menu>Dubai</a></li>
+                <li><a href="#explore" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-close-menu>Attractions</a></li>
+                <li><a href="#culture" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-close-menu>Culture & Heritage</a></li>
+                <li><a href="#dining" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-close-menu>Food & Dining</a></li>
+                <li><a href="#contact" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-close-menu>Contact</a></li>
+                <li class="mt-4 px-4">
+                    <a href="https://www.visitdubai.com" target="_blank" class="block text-center bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 shadow-md">Visit Dubai</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="relative min-h-screen flex items-center justify-center text-white overflow-hidden pt-16 md:pt-0">
+        <div id="hero-carousel" class="absolute inset-0 flex transition-transform duration-700 ease-in-out">
+            <div class="min-w-full relative">
+                <img src="images/Hero_slider.jpg" alt="Dubai City Skyline" class="w-full h-full object-cover brightness-[.65]" loading="eager">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end justify-center p-8 text-center md:items-center md:justify-start md:text-left">
+                    <div class="max-w-3xl carousel-caption reveal-bottom">
+                        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Discover the Heart of Dubai</h1>
+                        <p class="text-lg md:text-xl font-light mb-6">Experience the vibrant city of luxury, innovation, and timeless culture.</p>
+                        <a href="#explore" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg hover:bg-blue-700 transition duration-300 shadow-lg inline-block">Explore Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="min-w-full relative">
+                <img src="images/Hero_slider1.jpg" alt="Burj Khalifa" class="w-full h-full object-cover brightness-[.65]" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end justify-center p-8 text-center md:items-center md:justify-start md:text-left">
+                    <div class="max-w-3xl carousel-caption reveal-bottom">
+                        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Soaring Heights: Burj Khalifa</h1>
+                        <p class="text-lg md:text-xl font-light mb-6">Witness breathtaking panoramic views from the world's tallest building.</p>
+                        <a href="#explore" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg hover:bg-blue-700 transition duration-300 shadow-lg inline-block">Plan Your Visit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="min-w-full relative">
+                <img src="images/Hero_slider2.jpg" alt="Palm Jumeirah" class="w-full h-full object-cover brightness-[.65]" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end justify-center p-8 text-center md:items-center md:justify-start md:text-left">
+                    <div class="max-w-3xl carousel-caption reveal-bottom">
+                        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Island Oasis: Palm Jumeirah</h1>
+                        <p class="text-lg md:text-xl font-light mb-6">Discover an iconic man-made island synonymous with luxury and leisure.</p>
+                        <a href="#explore" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg hover:bg-blue-700 transition duration-300 shadow-lg inline-block">Explore Resorts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full z-10 hover:bg-opacity-75 transition" id="prev-slide" aria-label="Previous slide">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full z-10 hover:bg-opacity-75 transition" id="next-slide" aria-label="Next slide">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10" id="carousel-indicators"></div>
+    </section>
+
+    <section id="dubai" class="relative min-h-screen flex items-center py-16 md:py-24 bg-cover bg-center text-white" style="background-image: url('images/Bg1.jpg');">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="container mx-auto px-4 z-10 reveal-bottom">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-10 text-white leading-tight">Unveiling the Metropolis: About Dubai</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-white/10 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-xl border border-white/20">
+                    <p class="mb-5 text-lg leading-relaxed">Dubai, a dazzling jewel in the Middle East, has transformed from a humble pearling and fishing settlement into a global metropolis renowned for its audacious architecture, luxury, and groundbreaking advancements.</p>
+                    <p class="mb-5 text-lg leading-relaxed">The discovery of oil in the late 1960s accelerated its growth, but Dubai brilliantly diversified into tourism, finance, trade, and technology, becoming a beacon of innovation and a strategic hub for international business and leisure.</p>
+                    <p class="text-lg leading-relaxed">From bustling souks to serene beaches, Dubai captivates with its dynamic blend of futuristic vision and rich cultural heritage.</p>
+                </div>
+                <div>
+                    <div class="mt-8 bg-white/10 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-xl border border-white/20">
+                        <div class="flex border-b border-blue-400 mb-6">
+                            <button class="tab-btn px-6 py-3 font-semibold text-blue-400 border-b-2 border-blue-400 transition duration-300" data-tab="population">Population</button>
+                            <button class="tab-btn px-6 py-3 font-semibold text-gray-300 border-b-2 border-transparent hover:text-blue-400 transition duration-300" data-tab="location">Location</button>
+                            <button class="tab-btn px-6 py-3 font-semibold text-gray-300 border-b-2 border-transparent hover:text-blue-400 transition duration-300" data-tab="climate">Climate</button>
+                        </div>
+                        <div class="mt-4 text-lg" id="tab-content">
+                            <div id="population" class="tab-pane">
+                                <p>Dubai's population is approximately <strong>3.6 million</strong> (as of 2025), a vibrant melting pot of over 200 nationalities, with expatriates making up about 85%.</p>
+                            </div>
+                            <div id="location" class="tab-pane hidden">
+                                <p>Dubai is strategically located on the southeast coast of the Persian Gulf, at <strong>25.2°N, 55.3°E</strong>, serving as a pivotal hub for global trade and travel.</p>
+                            </div>
+                            <div id="climate" class="tab-pane hidden">
+                                <p>Dubai experiences a hot desert climate with summer temperatures of <strong>35–45°C</strong> (95–113°F) and milder winters of <strong>20–25°C</strong> (68–77°F). Rainfall is scarce, occurring mainly in winter.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="explore" class="py-16 bg-gray-50 md:py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Explore & Plan Your Journey</h2>
+            <p class="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+                Click on map markers or list items to learn more and add them to your personal itinerary.
+            </p>
+            <div id="filters" class="flex justify-center flex-wrap gap-3 mb-8">
+                <button class="filter-btn bg-blue-600 text-white px-5 py-2 rounded-full shadow hover:bg-blue-700">All</button>
+                <button class="filter-btn bg-white text-gray-700 px-5 py-2 rounded-full shadow hover:bg-gray-100">Attractions</button>
+                <button class="filter-btn bg-white text-gray-700 px-5 py-2 rounded-full shadow hover:bg-gray-100">Culture</button>
+                <button class="filter-btn bg-white text-gray-700 px-5 py-2 rounded-full shadow hover:bg-gray-100">Dining</button>
+            </div>
+            <div class="grid lg:grid-cols-12 gap-8">
+                <div class="lg:col-span Atairah-8 h-[600px] rounded-xl shadow-lg" id="map"></div>
+                <div class="lg:col-span-4 max-h-[600px] overflow-y-auto pr-2">
+                    <div id="location-list" class="space-y-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="itinerary-sidebar" class="translate-x-full fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out">
+        <div class="p-4 flex justify-between items-center border-b">
+            <h3 class="text-xl font-bold">My Dubai Itinerary</h3>
+            <button id="close-itinerary" class="text-gray-600 text-2xl font-bold">×</button>
+        </div>
+        <div id="itinerary-items" class="p-4 overflow-y-auto space-y-2"></div>
+    </div>
+
+    <section id="contact" class="py-16 bg-gray-900 text-white text-center md:py-24">
+        <div class="container mx-auto px-4 reveal-bottom">
+            <h2 class="text-4xl md:text-5xl font-bold mb-10">Connect With Us</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto opacity-80">Have questions about your Dubai journey? Reach out to us!</p>
+            <div class="max-w-lg mx-auto space-y-6">
+                <div>
+                    <label for="name" class="block text-lg font-medium text-left mb-2 opacity-90">Name</label>
+                    <input type="text" id="name" name="name" class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" required aria-required="true">
+                </div>
+                <div>
+                    <label for="email" class="block text-lg font-medium text-left mb-2 opacity-90">Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" required aria-required="true">
+                </div>
+                <div>
+                    <label for="message" class="block text-lg font-medium text-left mb-2 opacity-90">Message</label>
+                    <textarea id="message" name="message" rows="5" class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" required aria-required="true"></textarea>
+                </div>
+                <button id="contact-submit" class="w-full bg-blue-600 text-white p-4 rounded-lg text-xl font-semibold hover:bg-blue-700 transition duration-300 shadow-lg hover:shadow-xl">Send Message</button>
+            </div>
+            <p id="form-feedback" class="mt-6 text-center hidden text-lg"></p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 py-6 text-center text-gray-600">
+        <p class="text-base">© <span id="current-year"></span> Visit Dubai. All rights reserved.</p>
+        <div class="flex justify-center space-x-4 mt-3">
+            <a href="#" class="text-gray-500 hover:text-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-500 hover:text-blue-600 transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-500 hover:text-blue-600 transition"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html>
